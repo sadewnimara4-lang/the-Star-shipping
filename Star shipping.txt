@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Star Shipping | Developer E‑commerce Solutions</title>
+  <!-- Google Fonts & simple reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #0a2540;
+      line-height: 1.4;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* header & nav */
+    .navbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      font-size: 2rem;
+    }
+
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #0f2b3d, #1e4a6e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .logo span {
+      font-weight: 500;
+      font-size: 0.9rem;
+      background: #eef2ff;
+      padding: 2px 8px;
+      border-radius: 30px;
+      color: #1e4a6e;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #1e2f3e;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #2c7da0;
+    }
+
+    .btn-outline {
+      border: 1.5px solid #2c7da0;
+      padding: 8px 18px;
+      border-radius: 40px;
+      background: transparent;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: #2c7da0;
+      color: white;
+      border-color: #2c7da0;
+    }
+
+    /* buttons */
+    .btn-primary {
+      background: #0f2b3d;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .btn-primary:hover {
+      background: #1e4a6e;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -5px rgba(15,43,61,0.2);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #0f2b3d;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      border: 1px solid #cbd5e1;
+      transition: 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: #2c7da0;
+      background: #f1f9fe;
+    }
+
+    /* hero */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 60px 0 40px;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-badge {
+      background: #e6f7ff;
+      color: #0f5c7a;
+      border-radius: 30px;
+      padding: 5px 16px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h2 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      color: #2c3e50;
+      margin-bottom: 32px;
+      max-width: 550px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 30px;
+    }
+
+    .stat h4 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #0f2b3d;
+    }
+
+    .hero-img {
+      flex: 1;
+      background: linear-gradient(145deg, #d9e9f2, #ffffff);
+      border-radius: 40px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+    }
+
+    .hero-img svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* features / services */
+    .section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: #4a627a;
+      max-width: 650px;
+      margin: 0 auto 50px;
+      font-size: 1.1rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 32px;
+      padding: 30px 24px;
+      box-shadow: 0 10px 25px -8px rgba(0,0,0,0.05);
+      transition: all 0.25s;
+      border: 1px solid #eef2f6;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: #cbdde9;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+    }
+
+    .card-icon {
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: #2d4a6e;
+      margin-bottom: 20px;
+    }
+
+    .price-tag {
+      font-weight: 800;
+      color: #0f2b3d;
+      font-size: 1.2rem;
+    }
+
+    /* shop showcase */
+    .shop-showcase {
+      background: #eef3fa;
+      border-radius: 48px;
+      padding: 50px 40px;
+      margin: 30px 0;
+    }
+
+    .shop-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .shop-item {
+      background: white;
+      border-radius: 28px;
+      padding: 20px;
+      width: 220px;
+      text-align: center;
+      transition: 0.2s;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.03);
+    }
+
+    .shop-icon {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    .shop-item h4 {
+      margin: 12px 0 6px;
+    }
+
+    .shop-price {
+      font-weight: 700;
+      color: #1e4a6e;
+    }
+
+    .shop-badge {
+      background: #0f2b3d10;
+      border-radius: 30px;
+      padding: 4px 12px;
+      font-size: 0.7rem;
+      display: inline-block;
+      margin-top: 8px;
+    }
+
+    /* CTA section */
+    .cta-block {
+      background: #0f2b3d;
+      color: white;
+      border-radius: 48px;
+      padding: 55px 40px;
+      text-align: center;
+      margin: 40px 0 60px;
+    }
+
+    .cta-block h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .cta-block p {
+      max-width: 550px;
+      margin: 0 auto 28px;
+      opacity: 0.9;
+    }
+
+    .btn-light {
+      background: white;
+      color: #0f2b3d;
+      padding: 14px 38px;
+      border-radius: 40px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.2s;
+    }
+
+    .btn-light:hover {
+      background: #f0f7ff;
+      transform: scale(1.02);
+    }
+
+    /* footer */
+    footer {
+      border-top: 1px solid #dce5ec;
+      padding: 40px 0 30px;
+      margin-top: 20px;
+    }
+
+    .footer-flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-logo p {
+      margin-top: 12px;
+      color: #2c5a74;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links div a {
+      display: block;
+      text-decoration: none;
+      color: #2c5a74;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: #5b7a95;
+    }
+
+    @media (max-width: 780px) {
+      .hero-text h2 {
+        font-size: 2.4rem;
+      }
+      .navbar {
+        flex-direction: column;
+        gap: 18px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-stats {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">
+      <div class="logo-icon">⭐</div>
+      <div>
+        <h1>Star Shipping</h1>
+        <span>web dev store</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#services">Services</a>
+      <a href="#shop">Shop</a>
+      <a href="#contact" class="btn-outline">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero section with marketing angle -->
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-badge">✨ Developer-first e‑commerce ecosystem</div>
+      <h2>Launch a stellar online store<br> with Star Shipping</h2>
+      <p>Tailored shopping websites, high‑performance themes, and integrated shipping solutions. Designed for devs & merchants.</p>
+      <a href="#shop" class="btn-primary">⚡ Explore web builds →</a>
+      <div class="hero-stats">
+        <div class="stat"><h4>120+</h4><span>components</span></div>
+        <div class="stat"><h4>98%</h4><span>client speed score</span></div>
+        <div class="stat"><h4>24/7</h4><span>dev support</span></div>
+      </div>
+    </div>
+    <div class="hero-img">
+      <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:360px">
+        <rect width="400" height="300" fill="none" />
+        <circle cx="200" cy="130" r="60" fill="#2c7da0" opacity="0.2" />
+        <rect x="140" y="140" width="120" height="100" rx="14" fill="#ffffff" stroke="#1f5e7e" stroke-width="2" />
+        <path d="M170 180 L230 180 M170 210 L210 210" stroke="#1f5e7e" stroke-width="3" stroke-linecap="round" />
+        <circle cx="200" cy="100" r="22" fill="#f4c542" />
+        <path d="M190 98 L210 98 M200 88 L200 108" stroke="white" stroke-width="2" />
+        <text x="190" y="265" fill="#0f2b3d" font-weight="bold" font-size="14">⭐ Star Shipping</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Services / what we offer -->
+  <div class="section" id="services">
+    <h2 class="section-title">⚙️ Dev‑friendly packages</h2>
+    <p class="section-sub">Ready to ship solutions — from custom frontends to full-stack e‑commerce platforms</p>
+    <div class="grid-3">
+      <div class="service-card">
+        <div class="card-icon">🛍️</div>
+        <h3>Express Storefront</h3>
+        <p>Responsive HTML/CSS/JS templates with cart logic, product grids, and Stripe integration. Deploy in days.</p>
+        <div class="price-tag">from $499</div>
+      </div>
+      <div class="service-card">
+        <div class="card-icon">🚀</div>
+        <h3>Star Performance Kit</h3>
+        <p>Optimized React/Vue store, headless commerce, blazing fast checkout. SEO & mobile-first.</p>
+        <div class="price-tag">from $1,290</div>
+      </div>
+      <div class="service-card">
+        <div class="card-icon">📦</div>
+        <h3>Shipping Automator</h3>
+        <p>Connect logistics APIs, real-time rates, label printing — smooth delivery workflow for any shop.</p>
+        <div class="price-tag">from $799</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- shop / digital products showcase for web developers -->
+  <div class="shop-showcase" id="shop">
+    <div style="text-align: center; margin-bottom: 32px;">
+      <span style="background:#0f2b3d10; padding:5px 20px; border-radius:40px;">🌟 Featured digital assets</span>
+      <h2 style="font-size: 2rem; margin-top: 12px;">Web dev shopping catalog</h2>
+      <p style="max-width: 500px; margin: 12px auto 0;">Premium code, UI kits & plugins — crafted for modern builders</p>
+    </div>
+    <div class="shop-grid">
+      <div class="shop-item">
+        <div class="shop-icon">📱</div>
+        <h4>Mobile-first UI kit</h4>
+        <div class="shop-price">$39</div>
+        <div class="shop-badge">react + tailwind</div>
+      </div>
+      <div class="shop-item">
+        <div class="shop-icon">🛒</div>
+        <h4>Cart.js component</h4>
+        <div class="shop-price">$24</div>
+        <div class="shop-badge">vanilla JS</div>
+      </div>
+      <div class="shop-item">
+        <div class="shop-icon">✨</div>
+        <h4>Star admin panel</h4>
+        <div class="shop-price">$79</div>
+        <div class="shop-badge">vue 3 + laravel</div>
+      </div>
+      <div class="shop-item">
+        <div class="shop-icon">🚢</div>
+        <h4>Shipping calculator</h4>
+        <div class="shop-price">$49</div>
+        <div class="shop-badge">API ready</div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="#" class="btn-secondary">📦 View full store →</a>
+    </div>
+  </div>
+
+  <!-- how it works / integrated shipping + ecommerce process -->
+  <div class="section">
+    <h2 class="section-title">How it works</h2>
+    <p class="section-sub">From code to checkout — Star Shipping simplifies e‑commerce development</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 20px;">
+      <div style="background: white; border-radius: 28px; padding: 25px; width: 260px; text-align: center;">
+        <div style="font-size: 2rem;">1️⃣</div>
+        <h3 style="margin: 15px 0 10px;">Choose blueprint</h3>
+        <p>Select one of 40+ responsive shop templates or request custom design.</p>
+      </div>
+      <div style="background: white; border-radius: 28px; padding: 25px; width: 260px; text-align: center;">
+        <div style="font-size: 2rem;">2️⃣</div>
+        <h3 style="margin: 15px 0 10px;">Integrate & ship</h3>
+        <p>Add products, connect shipping carriers, test payments — we handle deployment.</p>
+      </div>
+      <div style="background: white; border-radius: 28px; padding: 25px; width: 260px; text-align: center;">
+        <div style="font-size: 2rem;">3️⃣</div>
+        <h3 style="margin: 15px 0 10px;">Grow revenue</h3>
+        <p>Analytics, conversion tools, and ongoing support. Your store, stellar ready.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- testimonial / social proof -->
+  <div style="background: #ffffff; border-radius: 48px; padding: 40px 30px; margin: 20px 0 40px; box-shadow: 0 6px 14px #e2e8f0;">
+    <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="#2c7da0" opacity="0.5"><path d="M10 11h-4v-4h4v4zm8 0h-4v-4h4v4zm-8 6h-4v-4h4v4zm8 0h-4v-4h4v4z"/></svg>
+      <p style="font-size: 1.25rem; font-style: italic; margin: 20px 0; color: #1f3b4c;">"Star Shipping built our entire headless shop in 2 weeks — plus integrated real-time shipping rates. Sales increased 47% in first month. Absolute game-changer!"</p>
+      <div style="font-weight: 700;">— Maya Chen, Founder of Lunar Goods</div>
+      <div style="color: #527a9b;">⭐ verified e‑commerce owner</div>
+    </div>
+  </div>
+
+  <!-- contact / lead gen section -->
+  <div id="contact" class="cta-block">
+    <h3>Ready to launch your star store?</h3>
+    <p>Get a free consultation + custom quote for your next web dev shopping project. We reply within 2h.</p>
+    <a href="#" class="btn-light">✉️ Contact sales →</a>
+    <div style="margin-top: 30px; font-size: 0.85rem;">⭐ special launch offer: 20% off first project</div>
+  </div>
+
+  <!-- footer with brand & legal -->
+  <footer>
+    <div class="footer-flex">
+      <div class="footer-logo">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 1.8rem;">⭐</span>
+          <span style="font-weight: 800; font-size: 1.4rem;">Star Shipping</span>
+        </div>
+        <p>Web developer store & e‑commerce agency<br>Making online selling effortless.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <a href="#">About us</a>
+          <a href="#">Services</a>
+          <a href="#">Shop digital</a>
+        </div>
+        <div>
+          <a href="#">Support</a>
+          <a href="#">Shipping API</a>
+          <a href="#">Affiliates</a>
+        </div>
+        <div>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">⭐ Reviews</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2025 Star Shipping — Crafted for developers & merchants. All trademarks belong to their respective owners.
+    </div>
+  </footer>
+</div>
+
+<!-- small interactive prompt / marketing floating banner? subtle -->
+<div style="position: fixed; bottom: 20px; right: 20px; z-index: 999;">
+  <div style="background: #0f2b3d; color: white; border-radius: 60px; padding: 12px 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); font-size: 0.85rem; font-weight: 500; display: flex; align-items: center; gap: 12px;">
+    <span>💬 Need dev shopping help?</span>
+    <a href="#" style="background: #f4c542; color: #0f2b3d; padding: 5px 14px; border-radius: 50px; text-decoration: none; font-weight: bold;">Chat now</a>
+  </div>
+</div>
+
+<script>
+  // simple smooth scroll for anchor links and a tiny interactive console greeting
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if(targetId === "#" || targetId === "") return;
+      const targetElement = document.querySelector(targetId);
+      if(targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // demo product awareness: simple alert for shop button but not intrusive
+  const shopButtons = document.querySelectorAll('.btn-secondary, .btn-primary');
+  shopButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      if(btn.innerText.includes('View full store') || btn.innerText.includes('Explore web builds')) {
+        e.preventDefault();
+        alert("✨ Welcome to Star Shipping demo! This is a marketing concept site. Real store & developer packages available upon contact.");
+      } else if(btn.innerText.includes('Contact sales')) {
+        e.preventDefault();
+        alert("📧 Get in touch: hello@starshipping.dev — we’ll send you full catalog & special dev pricing.");
+      } else if(btn.innerText.includes('Chat now')) {
+        e.preventDefault();
+        alert("💬 Live chat (demo): Our web dev team will reply within minutes. Real store builds start from $399.");
+      }
+    });
+  });
+</script>
+</body>
+</html>
